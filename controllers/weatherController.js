@@ -4,7 +4,7 @@ const getWeatherByCityName = async (req, res) => {
   const cityName = req.params.cityName;
 
   try {
-    const weatherData = await findOne({cityName});
+    const weatherData = await WeatherData.findOne({cityName});
     if(!weatherData)
     return res.status(404).json({ message: 'Weather data not found for the given city' });
 
@@ -23,7 +23,7 @@ const getWeatherByZipCode = async (req, res) => {
   const zipCode = req.params.zipCode;
 
   try {
-    const weatherData = await findOne({zipCode});
+    const weatherData = await WeatherData.findOne({zipCode});
     if(!weatherData)
     return res.status(404).json({ message: 'Weather data not found for the given zip code' });
 
